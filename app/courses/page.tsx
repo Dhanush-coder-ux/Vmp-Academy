@@ -1,73 +1,74 @@
 'use client'
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
+import { getCourses } from '@/lib/actions/course.action';
+
+type Course = {
+  id: string;
+  title: string;
+  description: string;
+  type: 'school' | 'skills';
+  grades?: string;
+  level?: string;
+  projects?: number;
+  syllabus: string[];
+  duration: string;
+}
 
 const CoursesPage = () => {
   const [activeTab, setActiveTab] = useState('school');
-  const [expandedCourse, setExpandedCourse] = useState(null);
+  const [expandedCourse, setExpandedCourse] = useState<string | null>(null);
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const schoolCourses = [
-    {
-      id: 1,
-      title: "Mathematics (CBSE/ICSE)",
-      grades: "Class 6-12",
-      description: "Comprehensive coverage of syllabus with problem-solving techniques",
-      syllabus: ["Algebra", "Geometry", "Trigonometry", "Calculus", "Statistics"],
-      duration: "9 months"
-    },
-    {
-      id: 2,
-      title: "Science (Physics, Chemistry, Biology)",
-      grades: "Class 8-12",
-      description: "Conceptual learning with practical applications",
-      syllabus: ["Mechanics", "Organic Chemistry", "Cell Biology", "Electromagnetism", "Thermodynamics"],
-      duration: "9 months"
-    },
-    {
-      id: 3,
-      title: "English Literature & Language",
-      grades: "Class 4-12",
-      description: "Enhance reading, writing and critical analysis skills",
-      syllabus: ["Grammar", "Composition", "Shakespeare", "Poetry", "Contemporary Literature"],
-      duration: "9 months"
-    }
-  ];
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        setLoading(true);
+        const data = await getCourses();
+        if (Array.isArray(data)) {
+          setCourses(data);
+        } else {
+          setError('Failed to fetch courses: Invalid data format');
+        }
+      } catch (err) {
+        setError(err.message || 'Failed to fetch courses');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const skillCourses = [
-    {
-      id: 4,
-      title: "Python Programming",
-      level: "Beginner to Advanced",
-      description: "Learn Python from basics to advanced applications",
-      syllabus: ["Syntax Basics", "Data Structures", "OOP", "Django/Flask", "Data Analysis"],
-      duration: "3 months",
-      projects: 5
-    },
-    {
-      id: 5,
-      title: "Graphic Design",
-      level: "Beginner to Intermediate",
-      description: "Master design tools and principles",
-      syllabus: ["Photoshop", "Illustrator", "Typography", "Branding", "UI/UX Basics"],
-      duration: "4 months",
-      projects: 6
-    },
-    {
-      id: 6,
-      title: "Web Development",
-      level: "Beginner to Advanced",
-      description: "Full-stack web development course",
-      syllabus: ["HTML/CSS", "JavaScript", "React", "Node.js", "MongoDB"],
-      duration: "5 months",
-      projects: 8
-    }
-  ];
+    fetchCourses();
+  }, []);
 
-  const toggleCourse = (id) => {
+  const toggleCourse = (id: string) => {
     setExpandedCourse(expandedCourse === id ? null : id);
   };
 
+  // Filter courses by type
+  const schoolCourses = courses.filter(course => course.type === 'school');
+  const skillCourses = courses.filter(course => course.type === 'skills');
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-white">Loading courses...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-red-500">{error}</div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
@@ -108,10 +109,10 @@ const CoursesPage = () => {
                   <div>
                     <h3 className="text-xl font-bold text-shadow-white-50">{course.title}</h3>
                     <p className="text-blue-600 font-medium mt-1">
-                      {activeTab === 'school' ? `Grades: ${course.grades}` : `Level: ${course.level}`}
+                      {course.type === 'school' ? `Grades: ${course.grades}` : `Level: ${course.level}`}
                     </p>
                   </div>
-                  {activeTab === 'skills' && (
+                  {course.type === 'skills' && (
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
                       {course.projects}+ Projects
                     </span>
@@ -139,12 +140,12 @@ const CoursesPage = () => {
                   <div className="mt-4 pt-4 border-t border-gray-200">
                     <h4 className="font-medium text-shadow-white-50 mb-2">Course Content:</h4>
                     <ul className="list-disc pl-5 space-y-1">
-                      {course.syllabus.map((item, index) => (
+                      {Array.isArray(course.syllabus) && course.syllabus.map((item, index) => (
                         <li key={index} className="text-gray-600">{item}</li>
                       ))}
                     </ul>
                     <div className="mt-3 flex justify-between items-center">
-                      <span className="text-sm text-gray-500">Duration: {course.duration}</span>
+                      <span>{course.duration}</span>
                       <button className="text-sm bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded-md">
                         Enroll Now
                       </button>

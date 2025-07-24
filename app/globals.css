@@ -479,3 +479,7 @@ section {
 .leaflet-container a {
   color: #3b82f6 !important; /* blue-500 */
 }
+/* add this to globals.css or component */
+.input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md;
+}
