@@ -19,13 +19,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+
+  const isBrowser = typeof window !== "undefined";
+  const shouldUseClerk = publishableKey && isBrowser;
+
   return (
     <html lang="en">
       <body className={`${bricolage.variable} antialiased`}>
-        <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY} appearance={{ variables: { colorPrimary: '#fe5933' }} }>
-          <Navbar />
-          {children}
-        </ClerkProvider>
+        {publishableKey ? (
+          <ClerkProvider
+            publishableKey={publishableKey}
+            appearance={{ variables: { colorPrimary: "#fe5933" } }}
+          >
+            <Navbar />
+            {children}
+          </ClerkProvider>
+        ) : (
+          <>
+            <Navbar />
+            {children}
+          </>
+        )}
       </body>
     </html>
   );
