@@ -31,7 +31,7 @@ export default function AdminCourseForm({ course = null, onSuccess }: AdminCours
     level: course?.level || '',
     description: course?.description || '',
     duration: course?.duration || '',
-    syllabus: course?.syllabus?.join('\n') || '',
+    syllabus: Array.isArray(course?.syllabus) ? course.syllabus.join('\n') : (course?.syllabus || ''),
     projects: course?.projects || '',
   })
 
