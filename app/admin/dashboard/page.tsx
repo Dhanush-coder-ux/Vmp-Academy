@@ -64,8 +64,8 @@ export default function AdminDashboard() {
   }
 
   useEffect(() => {
-    if (isAdmin) loadCourses()
-  }, [isAdmin, loadCourses])
+     loadCourses()
+  }, [ loadCourses])
 
   return (
     <div className="p-6 max-w-5xl mx-auto">
