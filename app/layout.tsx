@@ -10,8 +10,8 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Converso",
-  description: "Real-time AI Teaching Platform",
+  title: "VMP Academy",
+  description: "Empowering students through personalized education",
 };
 
 export default function RootLayout({
@@ -19,28 +19,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-
-  const isBrowser = typeof window !== "undefined";
-  const shouldUseClerk = publishableKey && isBrowser;
-
   return (
     <html lang="en">
       <body className={`${bricolage.variable} antialiased`}>
-        {publishableKey ? (
-          <ClerkProvider
-            publishableKey={publishableKey}
-            appearance={{ variables: { colorPrimary: "#fe5933" } }}
-          >
-            <Navbar />
-            {children}
-          </ClerkProvider>
-        ) : (
-          <>
-            <Navbar />
-            {children}
-          </>
-        )}
+        <ClerkProvider   appearance={{ variables: { colorPrimary: '#fe5933' }} }>
+          <Navbar />
+          {children}
+          
+        </ClerkProvider>
       </body>
     </html>
   );
