@@ -90,6 +90,7 @@ const About = () => {
             Our experienced educators focus on critical thinking, problem-solving, and confidence-building—because learning goes beyond textbooks. We create an environment where students thrive academically and personally.
           </p>
         </div>
+        
         <ActivityFeed />
       </div>
     </div>
