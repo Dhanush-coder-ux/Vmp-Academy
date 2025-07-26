@@ -46,10 +46,10 @@ const Hero = () => {
           >
             Book Free Trial
           </button> */}
-          <Link href={'/admin/dashboard'} className="px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-purple-400 to-purple-600 hover:from-purple-500 hover:to-purple-700 rounded-lg shadow-lg shadow-purple-500/50 transition-all hover:shadow-xl">
+          {/* <Link href={'/admin/dashboard'} className="px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-purple-400 to-purple-600 hover:from-purple-500 hover:to-purple-700 rounded-lg shadow-lg shadow-purple-500/50 transition-all hover:shadow-xl">
             Admin Dashboard
             <img src="/icons/clock.svg" height={20} width={20} alt="Dashboard" />
-          </Link>
+          </Link> */}
         
         </div>
       </div>
