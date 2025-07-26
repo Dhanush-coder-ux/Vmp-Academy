@@ -1,5 +1,8 @@
 
 
+import ActivityFeed from "@/components/ActivityFeed";
+
+
 const About = () => {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -87,6 +90,7 @@ const About = () => {
             Our experienced educators focus on critical thinking, problem-solving, and confidence-building—because learning goes beyond textbooks. We create an environment where students thrive academically and personally.
           </p>
         </div>
+        <ActivityFeed />
       </div>
     </div>
   );

@@ -3,10 +3,12 @@
 import { useUser } from '@clerk/nextjs'
 import { useEffect, useState, useCallback } from 'react'
 import AdminCourseForm from '@/components/AdminCourseForm'
-import { ToastContainer, toast } from 'react-toastify';
-
+import { ToastContainer, toast } from 'react-toastify'
 import { getCourses, deleteCourse as deleteCourseAction } from '@/lib/actions/course.action'
 import AdminTestimonial from '@/components/AdminTestimonial'
+import AddActivityForm from '@/components/AddActivityForm'
+import { deleteActivity, getActivities } from '@/lib/actions/activity'
+// import { getActivities, deleteActivity } from '@/lib/actions/activity'
 
 interface Course {
   id: number
@@ -23,14 +25,26 @@ interface Course {
   updated_at?: string
 }
 
+interface Activity {
+  id: string
+  title: string
+  description: string
+  category: string
+  duration: number
+  imageUrl?: string
+  createdAt: string
+}
+
 export default function AdminDashboard() {
   const { user } = useUser()
   const [courses, setCourses] = useState<Course[]>([])
+  const [activities, setActivities] = useState<Activity[]>([])
   const [editCourse, setEditCourse] = useState<Course | null>(null)
-  const [showForm, setShowForm] = useState(false)
+  const [showCourseForm, setShowCourseForm] = useState(false)
+  const [showActivityForm, setShowActivityForm] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [activeTab, setActiveTab] = useState<'courses' | 'testimonials'>('courses') // New tab state
+  const [activeTab, setActiveTab] = useState<'courses' | 'testimonials' | 'activities'>('courses')
 
   const isAdmin = user?.publicMetadata?.role === 'admin'
 
@@ -49,10 +63,26 @@ export default function AdminDashboard() {
     }
   }, [])
 
+  const loadActivities = useCallback(async () => {
+    try {
+      setIsLoading(true)
+      const data = await getActivities()
+      setActivities(data)
+    } catch (err) {
+      setError('Failed to load activities')
+      console.error(err)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [])
+
   const handleDeleteCourse = async (id: number) => {
+    if (!confirm('Are you sure you want to delete this course?')) return
+    
     try {
       const result = await deleteCourseAction(id)
       if (result === true) {
+        toast.success('Course deleted successfully')
         await loadCourses()
       } else {
         setError(result || 'Failed to delete course')
@@ -63,13 +93,31 @@ export default function AdminDashboard() {
     }
   }
 
+  const handleDeleteActivity = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this activity?')) return
+    
+    try {
+      await deleteActivity(id)
+      toast.success('Activity deleted successfully')
+      await loadActivities()
+    } catch (err) {
+      setError('Failed to delete activity')
+      console.error(err)
+    }
+  }
+
   useEffect(() => {
-     loadCourses()
-  }, [ loadCourses])
+    if (activeTab === 'courses') {
+      loadCourses()
+    } else if (activeTab === 'activities') {
+      loadActivities()
+    }
+  }, [activeTab, loadCourses, loadActivities])
 
   return (
     <div className="p-6 max-w-5xl mx-auto">
       <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover draggable />
+      
       {/* Tab Navigation */}
       <div className="flex border-b border-gray-700 mb-6">
         <button
@@ -77,6 +125,12 @@ export default function AdminDashboard() {
           onClick={() => setActiveTab('courses')}
         >
           Courses
+        </button>
+        <button
+          className={`py-2 px-4 font-medium ${activeTab === 'activities' ? 'text-white border-b-2 border-blue-500' : 'text-gray-400 hover:text-white'}`}
+          onClick={() => setActiveTab('activities')}
+        >
+          Activities
         </button>
         <button
           className={`py-2 px-4 font-medium ${activeTab === 'testimonials' ? 'text-white border-b-2 border-blue-500' : 'text-gray-400 hover:text-white'}`}
@@ -97,19 +151,19 @@ export default function AdminDashboard() {
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-bold text-white">Manage Courses</h1>
             <button 
-              onClick={() => { setEditCourse(null); setShowForm(true) }} 
+              onClick={() => { setEditCourse(null); setShowCourseForm(true) }} 
               className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
             >
               + Add Course
             </button>
           </div>
 
-          {showForm && (
+          {showCourseForm && (
             <AdminCourseForm
               course={editCourse}
               onSuccess={() => {
                 loadCourses()
-                setShowForm(false)
+                setShowCourseForm(false)
                 setEditCourse(null)
               }}
             />
@@ -125,7 +179,7 @@ export default function AdminDashboard() {
                   <p className="text-sm text-gray-500">{course.description}</p>
                   <div className="mt-3 flex gap-3">
                     <button 
-                      onClick={() => { setEditCourse(course); setShowForm(true) }} 
+                      onClick={() => { setEditCourse(course); setShowCourseForm(true) }} 
                       className="text-sm px-3 py-1 bg-yellow-400 rounded hover:bg-yellow-500 transition-colors"
                     >
                       Edit
@@ -136,6 +190,62 @@ export default function AdminDashboard() {
                     >
                       Delete
                     </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      ) : activeTab === 'activities' ? (
+        <>
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-2xl font-bold text-white">Manage Activities</h1>
+            <button 
+              onClick={() => setShowActivityForm(true)} 
+              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+            >
+              + Add Activity
+            </button>
+          </div>
+
+          {showActivityForm && (
+            <AddActivityForm
+              onSuccess={() => {
+                loadActivities()
+                setShowActivityForm(false)
+              }}
+            />
+          )}
+
+          {isLoading ? (
+            <div className="text-white">Loading activities...</div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+              {activities.map(activity => (
+                <div key={activity.id} className="bg-black border border-gray-700 p-4 rounded-md shadow-md">
+                  {activity.imageUrl && (
+                    <div className="relative h-40 w-full mb-3 rounded-md overflow-hidden">
+                      <img 
+                        src={activity.imageUrl} 
+                        alt={activity.title}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                  )}
+                  <h2 className="font-bold">{activity.title}</h2>
+                  <p className="text-sm text-gray-500 line-clamp-2">{activity.description}</p>
+                  <div className="mt-3 flex justify-between items-center">
+                    <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
+                      {activity.category} • {activity.duration} mins
+                    </span>
+                    <div className="flex gap-2">
+                      <button 
+                        onClick={() => handleDeleteActivity(activity.id)} 
+                        className="text-sm px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}

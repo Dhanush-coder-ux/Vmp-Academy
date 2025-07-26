@@ -4,7 +4,7 @@ import { getTestimonials } from '@/lib/actions/testimonials'
 import { useEffect, useState } from 'react'
 
 interface Testimonial {
-  id: number
+  id: number | undefined
   name: string
   content: string
   rating?: number
