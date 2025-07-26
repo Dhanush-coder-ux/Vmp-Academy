@@ -23,8 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${bricolage.variable} antialiased`}>
         <ClerkProvider   publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
-      afterSignInUrl="/admin"
-      afterSignUpUrl="/admin"  appearance={{ variables: { colorPrimary: '#fe5933' }} }>
+     redirectUrl="/admin/dashboard" appearance={{ variables: { colorPrimary: '#fe5933' }} }>
           <Navbar />
           {children}
 

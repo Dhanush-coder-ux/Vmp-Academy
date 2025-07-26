@@ -116,7 +116,7 @@ export const deleteTestimonial = async (id: number): Promise<boolean> => {
 }
 
 export const updateTestimonial = async (
-  id:string | number,
+  id: number,
   formData: FormData
 ): Promise<Testimonial> => {
   const supabase = supabaseClient()
@@ -126,20 +126,20 @@ export const updateTestimonial = async (
     throw new Error('Authentication required')
   }
 
-  // Verify the testimonial exists and belongs to the user
-  const { data: existing } = await supabase
-    .from('testimonials')
-    .select('author')
-    .eq('id', id)
-    .single()
+  // // Verify the testimonial exists and belongs to the user
+  // const { data: existing } = await supabase
+  //   .from('testimonials')
+  //   .select('author')
+  //   .eq('id', id)
+  //   .single()
 
-  if (!existing) {
-    throw new Error('Testimonial not found')
-  }
+  // if (!existing) {
+  //   throw new Error('Testimonial not found')
+  // }
 
-  if (existing.author !== userId) {
-    throw new Error('Unauthorized to update this testimonial')
-  }
+  // if (existing.author !== userId) {
+  //   throw new Error('Unauthorized to update this testimonial')
+  // }
 
   // Extract form data
   const testimonial = {
