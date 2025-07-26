@@ -116,7 +116,7 @@ export const deleteTestimonial = async (id: number): Promise<boolean> => {
 }
 
 export const updateTestimonial = async (
-  id: number,
+  id:string | number,
   formData: FormData
 ): Promise<Testimonial> => {
   const supabase = supabaseClient()

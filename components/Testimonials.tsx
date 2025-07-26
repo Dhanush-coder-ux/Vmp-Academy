@@ -1,5 +1,6 @@
 'use client'
 
+import { getTestimonials } from '@/lib/actions/testimonials'
 import { useEffect, useState } from 'react'
 
 interface Testimonial {
@@ -21,13 +22,13 @@ const Testimonials = () => {
     const fetchTestimonials = async () => {
       try {
         setLoading(true)
-        const response = await fetch('/api/testimonials')
+        const data = await getTestimonials()
         
-        if (!response.ok) {
-          throw new Error('Failed to fetch testimonials')
-        }
+        // if (!respon.ok) {
+        //   throw new Error('Failed to fetch testimonials')
+        // }
         
-        const data = await response.json()
+        // const data = await response.json()
         setTestimonials(data)
       } catch (err) {
         if (err instanceof Error) {
