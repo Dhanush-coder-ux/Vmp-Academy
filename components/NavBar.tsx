@@ -35,7 +35,7 @@ const NavBar = () => {
                         <span className="text-blue-600">M</span>
                         <span className="text-white">P</span>
                     </span>
-                    <span className="ml-2 text-xl font-semibold text-gray-500 hidden sm:inline">
+                    <span className="ml-2 text-xl font-semibold text-gray-500 ">
                         Academy
                     </span>
                 </Link>

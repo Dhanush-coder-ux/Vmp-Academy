@@ -214,6 +214,7 @@ export default function AdminDashboard() {
                 loadActivities()
                 setShowActivityForm(false)
               }}
+              onCancel={() => setShowActivityForm(false)}
             />
           )}
 

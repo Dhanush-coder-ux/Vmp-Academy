@@ -136,7 +136,7 @@ export default function AdminTestimonial() {
       <h1 className="text-3xl font-bold mb-8">Manage Testimonials</h1>
       
       {/* Add/Edit Form */}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+      <div className="bg-black border border-gray-800 rounded-lg shadow-md p-6 mb-8">
         <h2 className="text-xl font-semibold mb-4">
           {editingId ? 'Edit Testimonial' : 'Add New Testimonial'}
         </h2>
@@ -254,20 +254,20 @@ export default function AdminTestimonial() {
         ) : (
           <div className="space-y-6">
             {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-white rounded-lg shadow-md p-6">
+              <div key={testimonial.id} className="bg-black border border-gray-800 rounded-lg shadow-md p-6">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800">{testimonial.name}</h3>
-                    <p className="text-gray-600 mt-2">{testimonial.content}</p>
+                    <h3 className="text-lg font-semibold text-shadow-violet-50">{testimonial.name}</h3>
+                    <p className="text-gray-400 mt-2">{testimonial.content}</p>
                     <div className="mt-3 text-sm">
                       {testimonial.rating && (
                         <p className="text-yellow-500">
                           {'★'.repeat(testimonial.rating)}{'☆'.repeat(5 - testimonial.rating)}
                         </p>
                       )}
-                      {testimonial.grade && <p className="text-gray-500">Grade: {testimonial.grade}</p>}
+                      {testimonial.grade && <p className="text-gray-300">Grade: {testimonial.grade}</p>}
                       {testimonial.subjects && <p className="text-blue-600">Subjects: {testimonial.subjects}</p>}
-                      <p className="text-gray-500 mt-2">
+                      <p className="text-gray-300 mt-2">
                         {new Date(testimonial.created_at).toLocaleDateString()}
                       </p>
                     </div>
