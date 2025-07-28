@@ -115,17 +115,12 @@ const Testimonials = () => {
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <a
-                  href="#enroll"
+                  href="#contact"
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
                 >
                   Start Your Success Story
                 </a>
-                <a
-                  href="#reviews"
-                  className="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition-colors"
-                >
-                  Read More Reviews
-                </a>
+               
               </div>
             </div>
           </>

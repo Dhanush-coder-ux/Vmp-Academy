@@ -30,14 +30,15 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
          
-          <button
+          <a
+            href="#contact"
             type="button"
-             onClick={() => router.push('/entrollment')}
+            //  onClick={() => router.push('/entrollment')}
             className="flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 rounded-lg shadow-lg shadow-cyan-500/50 transition-all hover:shadow-xl"
           >
             Contact Us
             <img src="/icons/contact.svg" height={25} width={25} alt="Enroll" />
-          </button>
+          </a>
           
           
           {/* <button 

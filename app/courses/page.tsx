@@ -146,9 +146,9 @@ const CoursesPage = () => {
                     </ul>
                     <div className="mt-3 flex justify-between items-center">
                       <span>{course.duration}</span>
-                      <button className="text-sm bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded-md">
+                      {/* <button className="text-sm bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded-md">
                         Enroll Now
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 )}
@@ -161,9 +161,9 @@ const CoursesPage = () => {
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold text-white mb-3">Need help choosing  <span className='text-blue-700'>a course?</span> </h3>
           <p className="text-gray-600 mb-6">Our academic advisors can help you select the perfect program</p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium shadow-lg">
-            Speak to an Advisor
-          </button>
+          <a href='#contact' className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium shadow-lg">
+            Contact Us 
+          </a>
         </div>
       </div>
     </div>

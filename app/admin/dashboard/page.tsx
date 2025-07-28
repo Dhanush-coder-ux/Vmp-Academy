@@ -8,6 +8,7 @@ import { getCourses, deleteCourse as deleteCourseAction } from '@/lib/actions/co
 import AdminTestimonial from '@/components/AdminTestimonial'
 import AddActivityForm from '@/components/AddActivityForm'
 import { deleteActivity, getActivities } from '@/lib/actions/activity'
+import { useRouter } from 'next/navigation'
 // import { getActivities, deleteActivity } from '@/lib/actions/activity'
 
 interface Course {
@@ -36,7 +37,8 @@ interface Activity {
 }
 
 export default function AdminDashboard() {
-  const { user } = useUser()
+   const { user, isLoaded } = useUser()
+   const router = useRouter()
   const [courses, setCourses] = useState<Course[]>([])
   const [activities, setActivities] = useState<Activity[]>([])
   const [editCourse, setEditCourse] = useState<Course | null>(null)
@@ -45,8 +47,9 @@ export default function AdminDashboard() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState<'courses' | 'testimonials' | 'activities'>('courses')
+   
 
-  const isAdmin = user?.publicMetadata?.role === 'admin'
+
 
   const loadCourses = useCallback(async () => {
     try {
@@ -113,6 +116,37 @@ export default function AdminDashboard() {
       loadActivities()
     }
   }, [activeTab, loadCourses, loadActivities])
+
+
+    const isAdmin = user?.publicMetadata?.role === 'admin'
+
+    useEffect(() => {
+    if (isLoaded && !isAdmin) {
+      router.push('/unauthorized')
+    }
+  }, [isLoaded, isAdmin, router])
+
+ 
+
+
+  
+   if (!isLoaded) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-white">Loading Admin...</div>
+      </div>
+    );
+  }
+
+  // Show unauthorized message if not admin (though redirect should happen first)
+  if (!isAdmin) {
+    return (
+      <div className="p-6 max-w-5xl mx-auto text-center">
+        <h1 className="text-2xl font-bold text-white">Unauthorized Access</h1>
+        <p className="text-gray-400">You don't have permission to view this page.</p>
+      </div>
+    )
+  }
 
   return (
     <div className="p-6 max-w-5xl mx-auto">

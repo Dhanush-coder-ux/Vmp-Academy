@@ -69,7 +69,7 @@ export default function ActivityFeed() {
         {activities.map((activity) => (
           <div 
             key={activity.id}
-            className="bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700 hover:border-gray-600 transition-colors group"
+            className="bg-black rounded-lg shadow-lg overflow-hidden border border-gray-700 hover:border-gray-600 transition-colors group"
           >
             {activity.image_url && (
               <div className="relative h-64 w-full">

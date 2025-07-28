@@ -75,7 +75,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
           Contact<span className="text-blue-600">Us</span>
@@ -148,7 +148,7 @@ const ContactForm = () => {
         </div>
 
         {/* Contact Form */}
-        <div>
+        <div id='contact'>
           <h3 className="text-xl font-semibold text-white mb-4">Send us a Message</h3>
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 gap-4">
@@ -161,7 +161,7 @@ const ContactForm = () => {
                   value={formData.firstName}
                   onChange={handleChange}
                   placeholder="Your first name"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full  border-none outline-none px-4 py-2  rounded-md "
                   required
                 />
               </div>
@@ -174,7 +174,7 @@ const ContactForm = () => {
                   value={formData.lastName}
                   onChange={handleChange}
                   placeholder="Your last name"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full outline-none border-none px-4 py-2 rounded-md "
                   required
                 />
               </div>
@@ -188,8 +188,8 @@ const ContactForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="your.email@example.com"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Email address"
+                className="w-full outline-none  border-none px-4 py-2  rounded-md "
                 required
               />
             </div>
@@ -202,8 +202,8 @@ const ContactForm = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="+91 98765 43210"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="phone number"
+                className="w-full outline-none  border-none px-4 py-2  rounded-md "
                 required
               />
             </div>
@@ -217,7 +217,7 @@ const ContactForm = () => {
                 value={formData.grade}
                 onChange={handleChange}
                 placeholder="e.g., Grade 10, Class 12"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full outline-none  border-none px-4 py-2  rounded-md"
                 required
               />
             </div>
@@ -231,7 +231,7 @@ const ContactForm = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Mathematics, Science, English, etc."
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full outline-none  border-none px-4 py-2  rounded-md "
                 required
               />
             </div>
@@ -244,7 +244,7 @@ const ContactForm = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full outline-none px-4 py-2  rounded-md border-none"
                 required
               ></textarea>
             </div>
