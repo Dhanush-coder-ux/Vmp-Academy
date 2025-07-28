@@ -157,14 +157,16 @@ const CoursesPage = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-white mb-3">Need help choosing  <span className='text-blue-700'>a course?</span> </h3>
-          <p className="text-gray-600 mb-6">Our academic advisors can help you select the perfect program</p>
-          <a href='#contact' className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium shadow-lg">
-            Contact Us 
-          </a>
-        </div>
+      {/* Inspiring Message */}
+<div className="mt-16 text-center">
+  <h3 className="text-2xl font-bold text-white mb-3">
+    Unlock Your Future with the <span className="text-blue-700">Right Course</span>
+  </h3>
+  <p className="text-gray-400 text-lg max-w-xl mx-auto">
+    Every journey begins with a single step. Choose from carefully crafted programs designed to build real-world skills and transform your career.
+  </p>
+</div>
+
       </div>
     </div>
   );
