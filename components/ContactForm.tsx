@@ -2,8 +2,8 @@
 
 import React from 'react';
 import dynamic from 'next/dynamic';
+import emailjs from '@emailjs/browser';
 
-// Dynamically import the map component to avoid SSR issues
 const MapWithNoSSR = dynamic(
   () => import('./LeafletMap'),
   { 
@@ -13,8 +13,62 @@ const MapWithNoSSR = dynamic(
 );
 
 const ContactForm = () => {
-  // Coordinates for your location (replace with your actual coordinates)
-   const location = {
+  const [formData, setFormData] = React.useState({   
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    grade: '',
+    subject: '',
+    message: ''
+  });
+
+  
+
+  const [loading, setLoading] = React.useState(false);
+  const [submitSuccess, setSubmitSuccess] = React.useState(false);
+  
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formData,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+
+      setSubmitSuccess(true);
+      setFormData({    
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        grade: '',
+        subject: '',
+        message: ''
+      });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitSuccess(false), 5000);
+      
+    } catch (error) {
+      console.error("Error sending email:", error);  
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Coordinates for your location
+  const location = {
     lat: 9.944342,
     lng: 78.127510,
     address: "BB Kulam Salai, Madurai, Tamil Nadu 625001"
@@ -22,7 +76,7 @@ const ContactForm = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-       <div className="text-center mb-16">
+      <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
           Contact<span className="text-blue-600">Us</span>
         </h2>
@@ -37,6 +91,12 @@ const ContactForm = () => {
           Our education consultants are ready to answer all your questions.
         </p>
       </div>
+
+      {submitSuccess && (
+        <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+          <p>Your message has been sent successfully! We'll get back to you soon.</p>
+        </div>
+      )}
 
       <div className="grid md:grid-cols-2 gap-8">
         {/* Contact Information */}
@@ -90,13 +150,16 @@ const ContactForm = () => {
         {/* Contact Form */}
         <div>
           <h3 className="text-xl font-semibold text-white mb-4">Send us a Message</h3>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label htmlFor="firstName" className="block text-sm font-medium text-white mb-1">First Name</label>
                 <input
                   type="text"
                   id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
                   placeholder="Your first name"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
@@ -107,6 +170,9 @@ const ContactForm = () => {
                 <input
                   type="text"
                   id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
                   placeholder="Your last name"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
@@ -119,6 +185,9 @@ const ContactForm = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="your.email@example.com"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
@@ -130,6 +199,9 @@ const ContactForm = () => {
               <input
                 type="tel"
                 id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 placeholder="+91 98765 43210"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
@@ -141,6 +213,9 @@ const ContactForm = () => {
               <input
                 type="text"
                 id="grade"
+                name="grade"
+                value={formData.grade}
+                onChange={handleChange}
                 placeholder="e.g., Grade 10, Class 12"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
@@ -152,6 +227,9 @@ const ContactForm = () => {
               <input
                 type="text"
                 id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
                 placeholder="Mathematics, Science, English, etc."
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
@@ -162,6 +240,9 @@ const ContactForm = () => {
               <label htmlFor="message" className="block text-sm font-medium text-white mb-1">Message</label>
               <textarea
                 id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 rows={4}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
@@ -170,9 +251,18 @@ const ContactForm = () => {
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              disabled={loading}
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              Send Message
+              {loading ? (
+                <span className="flex items-center justify-center">
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Sending...
+                </span>
+              ) : 'Send Message'}
             </button>
           </form>
         </div>

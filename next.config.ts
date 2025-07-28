@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     domains: [
       'xvmrdijlriqvrerzntlg.supabase.co' // Your Supabase storage domain
     ],
+    
   },
     typescript: {
     ignoreBuildErrors : true

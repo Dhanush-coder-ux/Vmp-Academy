@@ -25,7 +25,7 @@ const NavBar = () => {
         };
     }, [visible]);
 
-    return (
+    return ( 
         <nav className='flex justify-between items-center p-4 px-5 md:px-20 shadow-md'>
             {/* Logo Section */}
             <div className="flex items-center">
@@ -35,7 +35,7 @@ const NavBar = () => {
                         <span className="text-blue-600">M</span>
                         <span className="text-white">P</span>
                     </span>
-                    <span className="ml-2 text-xl font-semibold text-gray-500 ">
+                    <span className="ml-2 text-xl font-semibold text-gray-500">
                         Academy
                     </span>
                 </Link>

@@ -35,8 +35,8 @@ const Hero = () => {
              onClick={() => router.push('/entrollment')}
             className="flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 rounded-lg shadow-lg shadow-cyan-500/50 transition-all hover:shadow-xl"
           >
-            Enroll Now
-            <img src="/icons/clock.svg" height={20} width={20} alt="Enroll" />
+            Contact Us
+            <img src="/icons/contact.svg" height={25} width={25} alt="Enroll" />
           </button>
           
           
