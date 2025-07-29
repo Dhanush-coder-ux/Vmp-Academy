@@ -102,13 +102,13 @@ const CoursesPage = () => {
           {(activeTab === 'school' ? schoolCourses : skillCourses).map((course) => (
             <div 
               key={course.id}
-              className={`bg-black border border-gray-700 rounded-xl shadow-md overflow-hidden transition-all duration-300 ${expandedCourse === course.id ? 'ring-2 ring-blue-500' : ''}`}
+              className={`bg-black border border-gray-700 rounded-xl shadow-md overflow-hidden transition-all duration-300 ${expandedCourse === course.id ? 'ring-2 ring-blue-400' : ''}`}
             >
               <div className="p-6">
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-xl font-bold text-shadow-white-50">{course.title}</h3>
-                    <p className="text-blue-600 font-medium mt-1">
+                    <p className="text-blue-400 font-medium mt-1">
                       {course.type === 'school' ? `Grades: ${course.grades}` : `Level: ${course.level}`}
                     </p>
                   </div>
@@ -123,7 +123,7 @@ const CoursesPage = () => {
                 
                 <button
                   onClick={() => toggleCourse(course.id)}
-                  className="mt-4 text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center"
+                  className="mt-4 text-blue-400 hover:text-blue-600 text-sm font-medium flex items-center"
                 >
                   {expandedCourse === course.id ? 'Hide Syllabus' : 'View Syllabus'}
                   <svg

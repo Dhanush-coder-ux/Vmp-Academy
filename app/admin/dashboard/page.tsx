@@ -216,13 +216,13 @@ export default function AdminDashboard() {
                       onClick={() => { setEditCourse(course); setShowCourseForm(true) }} 
                       className="text-sm px-3 py-1 bg-yellow-400 rounded hover:bg-yellow-500 transition-colors"
                     >
-                      Edit
+                      <img src="/icons/edit.svg" width={20} height={20} alt="Edit" className="inline-block w-4 h-4 mr-1" />
                     </button>
                     <button 
                       onClick={() => handleDeleteCourse(course.id)} 
                       className="text-sm px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
                     >
-                      Delete
+                      <img src="/icons/delete.svg"  width={20} height={20} alt="" />
                     </button>
                   </div>
                 </div>
@@ -278,7 +278,7 @@ export default function AdminDashboard() {
                         onClick={() => handleDeleteActivity(activity.id)} 
                         className="text-sm px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
                       >
-                        Delete
+                        <img src="/icons/delete.svg"  width={20} height={20} alt="" />
                       </button>
                     </div>
                   </div>

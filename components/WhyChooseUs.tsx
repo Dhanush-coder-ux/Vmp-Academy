@@ -5,7 +5,7 @@ const WhyChooseUs = () => {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
           Why Choose <span className="text-blue-600">VMP Academy?</span>
         </h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        <p className="text-lg text-gray-500 max-w-3xl mx-auto">
           We combine excellence in education with personalized attention to create the perfect learning environment for every student.
         </p>
       </div>
@@ -17,7 +17,7 @@ const WhyChooseUs = () => {
             <img src="/icons/teacher.svg" alt="Expert Tutors" className="w-8 h-7" />
           </div>
           <h3 className="text-xl font-semibold mb-2">Expert Tutors</h3>
-          <p className="text-gray-600">Qualified, passionate educators with proven track records</p>
+          <p className="text-gray-500">Qualified, passionate educators with proven track records</p>
         </div>
 
         {/* Feature 2 */}
@@ -26,7 +26,7 @@ const WhyChooseUs = () => {
             <img src="/icons/track.svg" alt="Performance Tracking" className="w-6 h-6" />
           </div>
           <h3 className="text-xl font-semibold mb-2">Performance Tracking</h3>
-          <p className="text-gray-600">Regular assessments & detailed progress reports for parents</p>
+          <p className="text-gray-500">Regular assessments & detailed progress reports for parents</p>
         </div>
 
         {/* Feature 3 */}
@@ -35,7 +35,7 @@ const WhyChooseUs = () => {
             <img src="/icons/grp.svg" alt="Small Class Sizes" className="w-7 h-7" />
           </div>
           <h3 className="text-xl font-semibold mb-2">Small Class Sizes</h3>
-          <p className="text-gray-600">Individual attention for every student with personalized learning</p>
+          <p className="text-gray-500">Individual attention for every student with personalized learning</p>
         </div>
 
         {/* Feature 4 */}
@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
             <img src="/icons/money.svg" alt="Affordable Fees" className="w-6 h-6" />
           </div>
           <h3 className="text-xl font-semibold mb-2">Affordable Fees</h3>
-          <p className="text-gray-600">Quality education without the high cost - value for money</p>
+          <p className="text-gray-500">Quality education without the high cost - value for money</p>
         </div>
 
         {/* Feature 5 */}
@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
             <img src="/icons/clock.svg" alt="Flexible Scheduling" className="w-6 h-6" />
           </div>
           <h3 className="text-xl font-semibold mb-2">Flexible Scheduling</h3>
-          <p className="text-gray-600">Morning, evening & weekend sessions to fit your lifestyle</p>
+          <p className="text-gray-500">Morning, evening & weekend sessions to fit your lifestyle</p>
         </div>
 
         {/* Feature 6 */}
@@ -62,7 +62,7 @@ const WhyChooseUs = () => {
             <img src="/icons/star.svg" alt="Proven Results" className="w-6 h-6" />
           </div>
           <h3 className="text-xl font-semibold mb-2">Proven Results</h3>
-          <p className="text-gray-600">95% success rate with improved grades and confidence</p>
+          <p className="text-gray-500">95% success rate with improved grades and confidence</p>
         </div>
       </div>
 

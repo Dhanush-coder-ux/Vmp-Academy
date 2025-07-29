@@ -12,13 +12,13 @@ const navItems = [
 const NavItems = () => {
     const pathname = usePathname();
   return (
-    <nav className='flex items-center gap-4'>
+    <nav className='flex items-center gap-6'>
       {/* hidden lg:flex items-center gap-4 */}
       {navItems.map(({ label, href })=>(
       <Link
           href={href}
           key={label}
-          className= "text-blue-300 font-semibold"
+          className= "text-white font-semibold"
           
         >
           <span>

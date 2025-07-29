@@ -278,14 +278,14 @@ export default function AdminTestimonial() {
                       className="px-3 py-1 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 text-sm"
                       disabled={loading}
                     >
-                      Edit
+                      <img src="/icons/edit.svg" width={20} height={20} alt="" />
                     </button>
                     <button
                       onClick={() => handleDelete(testimonial.id)}
                       className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 text-sm"
                       disabled={loading}
                     >
-                      Delete
+                      <img src="/icons/delete.svg" width={20} height={20} alt="" />
                     </button>
                   </div>
                 </div>

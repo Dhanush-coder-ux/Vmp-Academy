@@ -63,6 +63,14 @@ export default function ActivityFeed() {
 
   return (
     <div className=" mx-auto py-8 ">
+              <div className='text-center mb-16 max-w-4xl mx-auto'>
+          <h1 className='text-3xl sm:text-5xl md:text-6xl font-semibold leading-[1.2]'>
+            Our  <span className='text-blue-600'>Activity</span>
+          </h1>
+          {/* <p className='mt-6 text-lg text-gray-500'>
+            VMP Academy was founded with a simple goal: to make quality education accessible. We provide structured learning environments to help students reach their full potential.
+          </p> */}
+        </div>
       <h2 className="text-2xl font-bold text-white mb-6">Recent Activities</h2>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
