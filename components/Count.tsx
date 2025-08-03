@@ -5,10 +5,10 @@ import { useGSAP } from "@gsap/react";
 
 
 const counterItems = [
-  { value: 300, suffix: "+", label: "Happy Students" },
-  { value: 30, suffix: "+", label: "Expert Tutors" },
-  { value: 10, suffix: "+", label: "Years Experience" },
-  { value: 90, suffix: "%", label: "Success Rate" },
+  { value: 900, suffix: "+", label: "Happy Students" },
+  { value: 20, suffix: "+", label: "Expert Tutors" },
+  { value: 12, suffix: "+", label: "Years Experience" },
+  { value: 100, suffix: "%", label: "Success Rate" },
 ];
 
 const Counter = () => {

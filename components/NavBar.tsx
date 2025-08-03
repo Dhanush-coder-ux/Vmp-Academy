@@ -30,14 +30,8 @@ const NavBar = () => {
             {/* Logo Section */}
             <div className="flex items-center">
                 <Link href="/" className="flex items-center">
-                    <span className="text-3xl font-bold">
-                        <span className="text-white">V</span>
-                        <span className="text-blue-600">M</span>
-                        <span className="text-white">P</span>
-                    </span>
-                    <span className="ml-2 text-xl font-semibold text-gray-500">
-                        Academy
-                    </span>
+                  <img src="/icons/vmp.png" width={200} height={200} className="w-40 sm:w-50" alt="" />
+                
                 </Link>
             </div>
 
