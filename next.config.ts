@@ -2,12 +2,13 @@ import {withSentryConfig} from "@sentry/nextjs";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-   images: {
-    domains: [
-      'xvmrdijlriqvrerzntlg.supabase.co' // Your Supabase storage domain
-    ],
-    
-  },
+images: {
+  domains: [
+    'gylbklnuuaxkywwiwwjb.supabase.co',
+    'another.supabase.co',
+  ],
+},
+
     typescript: {
     ignoreBuildErrors : true
   },

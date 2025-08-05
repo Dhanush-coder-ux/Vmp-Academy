@@ -3,7 +3,7 @@
 import Count from './Count'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-import Link from 'next/link';
+
 import { useRouter } from 'next/navigation';
 
 const Hero = () => {
