@@ -19,7 +19,7 @@ const Hero = () => {
   return (
     <div className='max-w-7xl mx-auto mt-10 px-4 sm:px-6 lg:px-8 py-20 sm:py-24'>
       <div className='text-center'>
-        <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold leading-tight'>
+        <h1 className='text-4xl text-black sm:text-5xl md:text-6xl font-bold leading-tight'>
           Welcome to <br /> 
           <span className='text-blue-600'>VMP Academy</span>
         </h1>

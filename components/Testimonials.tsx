@@ -78,6 +78,7 @@ const Testimonials = () => {
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Student Success Stories
           </h2>
+            
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Don't just take our word for it. Here's what our students and parents have to say about their experience at VMP Academy.
           </p>

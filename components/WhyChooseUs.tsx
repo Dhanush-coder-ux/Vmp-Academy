@@ -2,7 +2,7 @@ const WhyChooseUs = () => {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
       <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-6">
           Why Choose <span className="text-blue-600">VMP Academy?</span>
         </h2>
         <p className="text-lg text-gray-500 max-w-3xl mx-auto">
@@ -68,12 +68,14 @@ const WhyChooseUs = () => {
 
       {/* 24/7 Support */}
       <div className="mt-16 text-center">
-        <div className="inline-flex items-center bg-white border-gray-600 px-6 py-3 rounded-full">
+        <div className="inline-flex items-center bg-gray-300 border-gray-600 px-6 py-3 rounded-full">
           <img src="/icons/clock.svg" alt="24/7 Support" className="w-5 h-5 mr-2" />
           <span className="font-semibold text-black">24/7 Support</span>
         </div>
       </div>
+         <hr className="mt-6 border-none h-[2px] bg-black w-full " />
     </section>
+    
   );
 };
 

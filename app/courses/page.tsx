@@ -71,10 +71,10 @@ const CoursesPage = () => {
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl font-bold text-black mb-4">
             Our <span className="text-blue-600">Courses</span>
           </h1>
-          <p className="text-lg text-shadow-white-50 max-w-3xl mx-auto">
+          <p className="text-lg text-black max-w-3xl mx-auto">
             Comprehensive learning programs designed for academic excellence and skill development
           </p>
         </div>
@@ -102,12 +102,12 @@ const CoursesPage = () => {
           {(activeTab === 'school' ? schoolCourses : skillCourses).map((course) => (
             <div 
               key={course.id}
-              className={`bg-black border border-gray-700 rounded-xl shadow-md overflow-hidden transition-all duration-300 ${expandedCourse === course.id ? 'ring-2 ring-blue-400' : ''}`}
+              className={`bg-white border border-gray-700 rounded-xl shadow-md overflow-hidden transition-all duration-300 ${expandedCourse === course.id ? 'ring-2' : ''}`}
             >
               <div className="p-6">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="text-xl font-bold text-shadow-white-50">{course.title}</h3>
+                    <h3 className="text-xl font-bold text-blue-500">{course.title}</h3>
                     <p className="text-blue-400 font-medium mt-1">
                       {course.type === 'school' ? `Grades: ${course.grades}` : `Level: ${course.level}`}
                     </p>
@@ -138,7 +138,7 @@ const CoursesPage = () => {
 
                 {expandedCourse === course.id && (
                   <div className="mt-4 pt-4 border-t border-gray-200">
-                    <h4 className="font-medium text-shadow-white-50 mb-2">Course Content:</h4>
+                    <h4 className="font-medium text-black mb-2">Course Content:</h4>
                     <ul className="list-disc pl-5 space-y-1">
                       {Array.isArray(course.syllabus) && course.syllabus.map((item, index) => (
                         <li key={index} className="text-gray-600">{item}</li>
@@ -159,7 +159,7 @@ const CoursesPage = () => {
 
       {/* Inspiring Message */}
 <div className="mt-16 text-center">
-  <h3 className="text-2xl font-bold text-white mb-3">
+  <h3 className="text-2xl font-bold text-black mb-3">
     Unlock Your Future with the <span className="text-blue-700">Right Course</span>
   </h3>
   <p className="text-gray-400 text-lg max-w-xl mx-auto">

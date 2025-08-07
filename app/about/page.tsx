@@ -9,7 +9,7 @@ const About = () => {
       <div className='relative flex flex-col w-full justify-center py-20 sm:py-16'>
         {/* Mission & Vision Header */}
         <div className='text-center mb-16 max-w-4xl mx-auto'>
-          <h1 className='text-3xl sm:text-5xl md:text-6xl font-semibold leading-[1.2]'>
+          <h1 className='text-3xl text-black sm:text-5xl md:text-6xl font-semibold leading-[1.2]'>
             Our Mission <span className='text-blue-600'>& Vision</span>
           </h1>
           <p className='mt-6 text-lg text-gray-500'>

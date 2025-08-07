@@ -204,7 +204,7 @@ export default function AdminDashboard() {
           )}
 
           {isLoading ? (
-            <div className="text-white">Loading courses...</div>
+            <div className="text-black">Loading courses...</div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
               {courses.map(course => (
@@ -233,7 +233,7 @@ export default function AdminDashboard() {
       ) : activeTab === 'activities' ? (
         <>
           <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-bold text-white">Manage Activities</h1>
+            <h1 className="text-2xl font-bold text-black">Manage Activities</h1>
             <button 
               onClick={() => setShowActivityForm(true)} 
               className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
@@ -253,7 +253,7 @@ export default function AdminDashboard() {
           )}
 
           {isLoading ? (
-            <div className="text-white">Loading activities...</div>
+            <div className="text-black">Loading activities...</div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
               {activities.map(activity => (
