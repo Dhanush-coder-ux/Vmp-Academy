@@ -133,7 +133,7 @@ export default function AdminTestimonial() {
   // ... rest of your JSX remains the same
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-8">Manage Testimonials</h1>
+      <h1 className="text-3xl text-black font-bold mb-8">Manage Testimonials</h1>
       
       {/* Add/Edit Form */}
       <div className="bg-black border border-gray-800 rounded-lg shadow-md p-6 mb-8">

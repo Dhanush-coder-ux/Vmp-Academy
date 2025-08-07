@@ -142,7 +142,7 @@ export default function AdminDashboard() {
   if (!isAdmin) {
     return (
       <div className="p-6 max-w-5xl mx-auto text-center">
-        <h1 className="text-2xl font-bold text-white">Unauthorized Access</h1>
+        <h1 className="text-2xl font-bold text-black">Unauthorized Access</h1>
         <p className="text-gray-400">You don't have permission to view this page.</p>
       </div>
     )
@@ -155,19 +155,19 @@ export default function AdminDashboard() {
       {/* Tab Navigation */}
       <div className="flex border-b border-gray-700 mb-6">
         <button
-          className={`py-2 px-4 font-medium ${activeTab === 'courses' ? 'text-white border-b-2 border-blue-500' : 'text-gray-400 hover:text-white'}`}
+          className={`py-2 px-4 font-medium ${activeTab === 'courses' ? 'text-black border-b-2 border-blue-500' : 'text-gray-400 '}`}
           onClick={() => setActiveTab('courses')}
         >
           Courses
         </button>
         <button
-          className={`py-2 px-4 font-medium ${activeTab === 'activities' ? 'text-white border-b-2 border-blue-500' : 'text-gray-400 hover:text-white'}`}
+          className={`py-2 px-4 font-medium ${activeTab === 'activities' ? 'text-black border-b-2 border-blue-500' : 'text-gray-400 '}`}
           onClick={() => setActiveTab('activities')}
         >
           Activities
         </button>
         <button
-          className={`py-2 px-4 font-medium ${activeTab === 'testimonials' ? 'text-white border-b-2 border-blue-500' : 'text-gray-400 hover:text-white'}`}
+          className={`py-2 px-4 font-medium ${activeTab === 'testimonials' ? 'text-black border-b-2 border-blue-500' : 'text-gray-400 '}`}
           onClick={() => setActiveTab('testimonials')}
         >
           Testimonials
@@ -183,7 +183,7 @@ export default function AdminDashboard() {
       {activeTab === 'courses' ? (
         <>
           <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-bold text-white">Manage Courses</h1>
+            <h1 className="text-2xl font-bold text-black">Manage Courses</h1>
             <button 
               onClick={() => { setEditCourse(null); setShowCourseForm(true) }} 
               className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"

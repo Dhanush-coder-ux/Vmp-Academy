@@ -82,7 +82,7 @@ const NavBar = () => {
                             href={item.href}
                             key={index}
                             onClick={() => setVisible(false)}
-                            className="flex items-center gap-3 p-3 text-black hover:bg-gray-500 rounded-md transition-colors"
+                            className="flex items-center gap-3 p-3 text-black  hover:bg-gray-500 rounded-md transition-colors"
                         >
                             <img src={item.img} width={20} height={20} alt={item.label} />
                             <span className="text-lg ">{item.label}</span>
