@@ -47,7 +47,7 @@ const NavBar = () => {
             <div className="flex items-center gap-4">
                 <SignedOut>
                     <SignInButton>
-                        <button className="px-4 py-2 bg-blue-600 text-black rounded-md hover:bg-blue-700 transition-colors">
+                        <button className="px-4 py-2 border border-black text-black rounded-full transition-colors">
                             Sign In
                         </button>
                     </SignInButton>

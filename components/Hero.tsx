@@ -23,7 +23,7 @@ const Hero = () => {
           Welcome to <br /> 
           <span className='text-blue-600'>VMP Academy</span>
         </h1>
-        <p className='mt-6 text-lg text-gray-300 max-w-2xl mx-auto'>
+        <p className='mt-6 text-lg text-gray-400 max-w-2xl mx-auto'>
           Empowering students through personalized education.  
           Quality tuition, expert guidance, and proven results.
         </p>
