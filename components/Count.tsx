@@ -52,12 +52,12 @@ const Counter = () => {
           <div
             key={index}
             ref={(el) => countersRef.current[index] = el}
-            className="bg-zinc-900 rounded-lg p-10 flex flex-col justify-center items-center text-center"
+            className="bg-white rounded-lg p-10 flex flex-col justify-center items-center text-center"
           >
-            <div className="counter-number text-white text-5xl font-bold mb-2">
+            <div className="counter-number text-blue-600 text-5xl font-bold mb-2">
               0{item.suffix}
             </div>
-            <div className="text-white text-lg">{item.label}</div>
+            <div className="text-blue-600 text-lg">{item.label}</div>
           </div>
         ))}
       </div>

@@ -54,7 +54,7 @@ const CoursesPage = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-white">Loading courses...</div>
+        <div className="text-black">Loading courses...</div>
       </div>
     );
   }
@@ -71,7 +71,7 @@ const CoursesPage = () => {
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-black mb-4">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-400 mb-4">
             Our <span className="text-blue-600">Courses</span>
           </h1>
           <p className="text-lg text-black max-w-3xl mx-auto">
@@ -159,7 +159,7 @@ const CoursesPage = () => {
 
       {/* Inspiring Message */}
 <div className="mt-16 text-center">
-  <h3 className="text-2xl font-bold text-black mb-3">
+  <h3 className="text-2xl font-bold text-gray-400 mb-3">
     Unlock Your Future with the <span className="text-blue-700">Right Course</span>
   </h3>
   <p className="text-gray-400 text-lg max-w-xl mx-auto">

@@ -77,7 +77,7 @@ const ContactForm = () => {
   return (
     <div  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
       <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-6">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-400 mb-6">
           Contact<span className="text-blue-600">Us</span>
         </h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -106,13 +106,13 @@ const ContactForm = () => {
               <LocationIcon />
             </div>
             <div className="flex-1">
-              <h3 className="text-lg font-semibold text-white">Our Location</h3>
+              <h3 className="text-lg font-semibold text-blue-600">Our Location</h3>
               <p className="text-gray-600">{location.address}</p>
               
               {/* Map Integration */}
               <div className="mt-4">
                 <MapWithNoSSR center={[location.lat, location.lng]} />
-                <p className="text-xs text-white mt-1">
+                <p className="text-xs text-blue-600 mt-1">
                   View on <a 
                     href={`https://www.openstreetmap.org/?mlat=${location.lat}&mlon=${location.lng}#map=15/${location.lat}/${location.lng}`} 
                     target="_blank" 
@@ -131,7 +131,7 @@ const ContactForm = () => {
               <PhoneIcon />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white">Call Us</h3>
+              <h3 className="text-lg font-semibold text-blue-600">Call Us</h3>
               <p className="text-gray-700">+91 98765 43210<br />+91 87654 32109</p>
             </div>
           </div>
@@ -141,7 +141,7 @@ const ContactForm = () => {
               <EmailIcon />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white">Email Us</h3>
+              <h3 className="text-lg font-semibold text-blue-600">Email Us</h3>
               <p className="text-gray-700">info@vmpacademy.com<br />admissions@vmpacademy.com</p>
             </div>
           </div>
@@ -149,11 +149,11 @@ const ContactForm = () => {
 
         {/* Contact Form */}
         <div id='contact'>
-          <h3 className="text-xl font-semibold text-white mb-4">Send us a Message</h3>
+          <h3 className="text-xl font-semibold text-blue-600 mb-4">Send us a Message</h3>
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label htmlFor="firstName" className="block text-sm font-medium text-white mb-1">First Name</label>
+                <label htmlFor="firstName" className="block text-sm font-medium text-blue-600 mb-1">First Name</label>
                 <input
                   type="text"
                   id="firstName"
@@ -166,7 +166,7 @@ const ContactForm = () => {
                 />
               </div>
               <div>
-                <label htmlFor="lastName" className="block text-sm font-medium text-white mb-1">Last Name</label>
+                <label htmlFor="lastName" className="block text-sm font-medium text-blue-600 mb-1">Last Name</label>
                 <input
                   type="text"
                   id="lastName"
@@ -181,7 +181,7 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-white mb-1">Email Address</label>
+              <label htmlFor="email" className="block text-sm font-medium text-blue-600 mb-1">Email Address</label>
               <input
                 type="email"
                 id="email"
@@ -195,7 +195,7 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-white mb-1">Phone Number</label>
+              <label htmlFor="phone" className="block text-sm font-medium text-blue-600 mb-1">Phone Number</label>
               <input
                 type="tel"
                 id="phone"
@@ -209,7 +209,7 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label htmlFor="grade" className="block text-sm font-medium text-white mb-1">Grade/Standard</label>
+              <label htmlFor="grade" className="block text-sm font-medium text-blue-600 mb-1">Grade/Standard</label>
               <input
                 type="text"
                 id="grade"
@@ -223,7 +223,7 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-white mb-1">Subject of Interest</label>
+              <label htmlFor="subject" className="block text-sm font-medium text-blue-600 mb-1">Subject of Interest</label>
               <input
                 type="text"
                 id="subject"
@@ -237,7 +237,7 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-white mb-1">Message</label>
+              <label htmlFor="message" className="block text-sm font-medium text-blue-600 mb-1">Message</label>
               <textarea
                 id="message"
                 name="message"
@@ -256,7 +256,7 @@ const ContactForm = () => {
             >
               {loading ? (
                 <span className="flex items-center justify-center">
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
