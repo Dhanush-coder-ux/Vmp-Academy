@@ -65,7 +65,7 @@ export default function ActivityFeed() {
     <div className="py-16 bg-white">
       {/* Header Section */}
       <div className="text-center mb-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-400 leading-tight">
           Our <span className="text-blue-600">Activity</span>
         </h1>
       </div>
