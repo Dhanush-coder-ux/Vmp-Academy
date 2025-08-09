@@ -9,6 +9,7 @@ import AdminTestimonial from '@/components/AdminTestimonial'
 import AddActivityForm from '@/components/AddActivityForm'
 import { deleteActivity, getActivities } from '@/lib/actions/activity'
 import { useRouter } from 'next/navigation'
+
 // import { getActivities, deleteActivity } from '@/lib/actions/activity'
 
 interface Course {
@@ -32,7 +33,7 @@ interface Activity {
   description: string
   category: string
   duration: number
-  imageUrl?: string
+  image_url?: string
   createdAt: string
 }
 
@@ -208,8 +209,8 @@ export default function AdminDashboard() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
               {courses.map(course => (
-                <div key={course.id} className="bg-black border border-gray-700 p-4 rounded-md shadow-md">
-                  <h2 className="font-bold">{course.title}</h2>
+                <div key={course.id} className="bg-white border border-gray-700 p-4 rounded-md shadow-md">
+                  <h2 className="font-bold text-black">{course.title}</h2>
                   <p className="text-sm text-gray-500">{course.description}</p>
                   <div className="mt-3 flex gap-3">
                     <button 
@@ -257,11 +258,11 @@ export default function AdminDashboard() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
               {activities.map(activity => (
-                <div key={activity.id} className="bg-black border border-gray-700 p-4 rounded-md shadow-md">
-                  {activity.imageUrl && (
-                    <div className="relative h-40 w-full mb-3 rounded-md overflow-hidden">
+                <div key={activity.id} className="bg-white border border-gray-700 p-4 rounded-md shadow-md">
+                  {activity && (
+                    <div className="relative h-fit w-full mb-3 rounded-md overflow-hidden">
                       <img 
-                        src={activity.imageUrl} 
+                        src={activity.image_url} 
                         alt={activity.title}
                         className="object-cover w-full h-full"
                       />

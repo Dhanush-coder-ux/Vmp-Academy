@@ -74,28 +74,26 @@ export default function ActivityFeed() {
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-black mb-8">Recent Activities</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
           {activities.map((activity, index) => (
             <div
               key={activity.id}
-              className="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-zinc-700 transition-transform duration-300 shadow-lg group hover:-translate-y-1 animate-fadeIn"
+              className="bg-white rounded-xl overflow-hidden border border-zinc-800 hover:border-zinc-700 transition-transform duration-300 shadow-lg group hover:-translate-y-1 animate-fadeIn"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {activity.image_url && (
-                <div className="relative w-full h-58 sm:h-56 overflow-hidden">
-                  <Image
-                    src={activity.image_url}
-                    alt={`Cover image for ${activity.title}`}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                    priority={index < 3}
-                  />
-                </div>
+                    <div className="relative h-fit w-full mb-3 rounded-md overflow-hidden">
+                      <img 
+                        src={activity.image_url} 
+                        alt={activity.title}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
               )}
 
               <div className="p-5">
                 <div className="flex items-center justify-between mb-3 text-sm">
-                  <span className="text-zinc-400">
+                  <span className="text-black">
                     {new Date(activity.createdAt).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'short',
@@ -103,27 +101,27 @@ export default function ActivityFeed() {
                     })}
                   </span>
                   <span
-                    className={`px-2 py-0.5 text-xs font-medium rounded-full capitalize ${
+                    className={`px-2 py-0.5 text-xs  font-medium rounded-full capitalize ${
                       activity.category === 'workshop'
-                        ? 'bg-purple-800/30 text-purple-300'
+                        ? 'bg-purple-800/30 text-white'
                         : activity.category === 'seminar'
                         ? 'bg-blue-800/30 text-blue-300'
                         : activity.category === 'competition'
                         ? 'bg-green-800/30 text-green-300'
-                        : 'bg-zinc-700 text-zinc-300'
+                        : 'bg-zinc-700 text-zinc-600'
                     }`}
                   >
                     {activity.category}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-semibold text-white line-clamp-1 mb-2">
+                <h3 className="text-lg font-semibold text-black line-clamp-1 mb-2">
                   {activity.title}
                 </h3>
 
                 <div className="mb-4">
                   <p
-                    className={`text-zinc-300 text-sm ${
+                    className={`text-zinc-600 text-sm ${
                       expandedDescriptions[activity.id] ? '' : 'line-clamp-3'
                     }`}
                   >
@@ -139,7 +137,7 @@ export default function ActivityFeed() {
                   )}
                 </div>
 
-                <div className="flex items-center text-sm text-zinc-400 gap-2">
+                <div className="flex items-center text-sm text-zinc-600 gap-2">
                   <svg
                     className="w-4 h-4 shrink-0"
                     fill="none"

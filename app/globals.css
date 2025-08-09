@@ -506,3 +506,8 @@ a.active hr{
   display: block;
   
 }
+@media (min-width: 768px) {
+  .desktop-fixed {
+    background-attachment: fixed;
+  }
+}

@@ -70,7 +70,7 @@ export default function AdminCourseForm({ course = null, onSuccess }: AdminCours
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-black p-4 rounded-md shadow-md space-y-4">
+    <form onSubmit={handleSubmit} className="bg-gray-900 p-4 rounded-md shadow-md space-y-4">
       <h2 className="text-xl font-semibold text-white">
         {isEdit ? 'Edit' : 'Add'} Course
       </h2>

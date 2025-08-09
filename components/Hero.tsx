@@ -17,14 +17,14 @@ const Hero = () => {
   });
 
   return (
-    <div
-      className="relative bg-cover bg-center bg-no-repeat min-h-screen"
-      style={{
-        backgroundImage: "url('/images/hero.jpg')", // 👈 Replace with your image path
-      }}
-    >
-      {/* Optional: overlay to darken background slightly */}
-      
+<div
+  className="relative bg-cover bg-top md:bg-center bg-no-repeat min-h-screen md:bg-fixed"
+  style={{
+    backgroundImage: "url('/images/hero.jpg')",
+  }}
+>
+
+    
 
       <div className="relative z-10 max-w-7xl mx-auto mt-10 px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
         <div className="text-center">
@@ -32,7 +32,7 @@ const Hero = () => {
             Welcome to <br />
             <span className="text-blue-600">VMP Academy</span>
           </h1>
-          <p className="mt-6 text-lg text-gray-200 max-w-2xl mx-auto">
+          <p className="mt-6 text-lg text-white max-w-2xl mx-auto">
             Empowering students through personalized education.
             Quality tuition, expert guidance, and proven results.
           </p>
