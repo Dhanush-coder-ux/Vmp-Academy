@@ -17,17 +17,19 @@ const Hero = () => {
   });
 
   return (
-<div
-  className="relative bg-cover bg-top md:bg-center bg-no-repeat min-h-screen md:bg-fixed"
-  style={{
-    backgroundImage: "url('/images/hero.jpg')",
-  }}
->
+    <div
+      className="relative bg-cover bg-no-repeat min-h-screen w-full"
+      style={{
+        backgroundImage: "url('/images/hero.jpg')",
+        backgroundPosition: 'center center',
+        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      <div className="absolute inset-0 bg-black/30"></div>
 
-    
-
-      <div className="relative z-10 max-w-7xl mx-auto mt-10 px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
-        <div className="text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 flex items-center min-h-screen">
+        <div className="text-center w-full">
           <h1 className="text-4xl text-white sm:text-5xl md:text-6xl font-bold leading-tight">
             Welcome to <br />
             <span className="text-blue-600">VMP Academy</span>
@@ -43,13 +45,13 @@ const Hero = () => {
               className="flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 rounded-lg shadow-lg shadow-cyan-500/50 transition-all hover:shadow-xl"
             >
               Contact Us
-              <img src="/icons/contact.svg" height={25} width={25} />
+              <img src="/icons/contact.svg" height={25} width={25} alt="Contact icon" />
             </a>
           </div>
-        </div>
 
-        <div className="mt-16 w-full flex justify-center">
-          <Count />
+          <div className="mt-16 w-full flex justify-center">
+            <Count />
+          </div>
         </div>
       </div>
     </div>
