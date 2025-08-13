@@ -132,7 +132,7 @@ const ContactForm = () => {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-blue-600">Call Us</h3>
-              <p className="text-gray-700">+91 98765 43210<br />+91 87654 32109</p>
+              <p className="text-gray-700">+91 9788718718</p>
             </div>
           </div>
 
@@ -142,7 +142,7 @@ const ContactForm = () => {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-blue-600">Email Us</h3>
-              <p className="text-gray-700">info@vmpacademy.com<br />admissions@vmpacademy.com</p>
+              <p className="text-gray-700">vmpacademymdu@gmail.com</p>
             </div>
           </div>
         </div>

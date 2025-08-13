@@ -30,7 +30,7 @@ const NavBar = () => {
             {/* Logo Section */}
             <div className="flex items-center">
                 <Link href="/" className="flex items-center">
-                  <img src="/icons/vmp.png" width={200} height={200} className="w-40 sm:w-50" alt="" />
+                  <img src="/images/vmp.png" width={200} height={200} className="w-50 sm:w-55" alt="" />
                 
                 </Link>
                 
